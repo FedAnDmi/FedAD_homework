@@ -55,7 +55,7 @@ public class MyArrayList <T> {
             throw new IndexOutOfBoundsException("Индекс выходит за пределы списка.");
         for (int i = index; i<pointer-1; i++)
             array[i] = array[i+1];// Сдвиг элементов справа от удалённого
-        array[index] = null; // обнуление последнего элемента
+        array[pointer-1] = null; // обнуление последнего элемента
         pointer--;
         // если элементов в cut_size раз меньше чем, длина массива, то уменьшает размер в два раза
         if (array.length > init_size && pointer < array.length / cut_size)
