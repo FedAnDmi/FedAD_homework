@@ -39,41 +39,41 @@ public class Main {
          }
          System.out.println("Сортировка:\n");
          array_test.sort(Comparator.comparing(Dog::getAge)); //Сортировка по возрасту
-         for (int i = 0; i < numberOfInstances; i++) {
-              System.out.println("Элемент "+i);
-              System.out.println(array_test.get(i));
-         }
+         printMyArrayList(numberOfInstances, array_test); //Вызов метода вывода массива
 
-
-
-
-         //System.out.println(array_test.size_e());
-
-         array_test.remove(5);//
-
-         System.out.println(array_test.get(5));
+         System.out.println("Тестирование добавления по индексу:\n");
+         Dog dog1=new Dog();
+         System.out.print("Введите индекс вставки : ");
+         int arrayNumber = scanner.nextInt();  //Ввод индекса собаки для вставки
+         array_test.add(dog1,arrayNumber); //Добавление собаки в список
+         printMyArrayList(numberOfInstances+1, array_test);
+         array_test.remove(arrayNumber); //удаление элемента из массива
+         System.out.println("\nТестирование удаления по индексу:\n");
+         printMyArrayList(numberOfInstances, array_test);
+         System.out.println("\nТестирование очистки:\n");
          array_test.clear();// очистка массива
          /*
           * Проверка очистки массива. Если среди элементов найдётся непустой, выведет
           * сообщение, что массив не очищен. Если не найдётся, после проверки последнего элемента
           * выдаст сообщение, что массив был очищен
           */
-         for (int i = 0; i < array_test.size(); i++) {
+         for (int i = 0; i < array_test.size_e(); i++) {
               if(array_test.get(i)!=null){
                    System.out.println("Массив не очищен");
-                   break;
-              } else if (i==array_test.size()-2) {
+                   break; //выход из цикла
+              } else if (i==array_test.size_e()-2) {
                    System.out.println("Массив очищен");
               }
          }
-         Dog dog1=new Dog();
-
-         array_test.add(dog1,16);
-
-
-         //- добавить элемент по индексу: add(int index, T element),
-         //- удалить элемент remove(int index),
-
+         System.out.println("\nЗавершено"); //Вывод записи о конце алгоритма
     }
+     /**
+      * Метод для вывода на экран элементов класса MyArrayList
+      */
+     private static void printMyArrayList(int number, MyArrayList array_test){
+          for (int i = 0; i < number; i++) {
+               System.out.println("Элемент "+i); //Вывод номера элемента
+               System.out.println(array_test.get(i)); // вывод элемента массива MyArrayList
+          }
+     }
 }
-
